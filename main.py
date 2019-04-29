@@ -8,7 +8,7 @@ from discord.ext import commands
 logs = {}
 
 timeout = 3
-TOKEN = os.environ.get('TOKEN')
+TOKEN = os.environ.get('NTcyMjg2OTkxMDMxNDY4MDM1.XMaGcQ.5oC4tjNbM29lau7MpuBRB6_CIWY')
 
 bot = commands.Bot(command_prefix='!', description='A spam bot for Eric!')
 
@@ -32,7 +32,7 @@ async def on_message(message):
         if(delta.seconds < timeout):
             logs[message.author.name].violations += 1
             await message.delete()
-            await message.channel.send('{0} earns a spamwich!'.format(message.author))
+            await message.channel.send('{0} Peringatan Spam!'.format(message.author))
         
         logs[message.author.name].lastMessage = message.created_at
     else:
@@ -55,9 +55,9 @@ async def spam(ctx):
     if name in logs:
         log = logs[name]
         if log.violations > 0:
-            await ctx.send('{0} has {1.violations} violations.'.format(name, log))
+            await ctx.send('{0} Total  {1.violations} Pelanggaran .'.format(name, log))
         else:
-            await ctx.send('{0} has no violations yet. Good job!'.format(name))
+            await ctx.send('{0} Tidak ada pelanggaran , Bagus!'.format(name))
     else:
         ctx.send('???')
 
@@ -88,11 +88,11 @@ bot.remove_command('help')
 
 @bot.command(pass_context=True)
 async def help(ctx):
-    embed = discord.Embed(title="Spam Bot", description="LESS Eric! :) List of commands are:", color=0xeee657)
+    embed = discord.Embed(title="Protector", description="CAPSUL_FLY! :) List Perintah:", color=0xeee657)
 
-    embed.add_field(name="!help", value="Details on the anti-Eric bot", inline=False)
-    embed.add_field(name="!ping", value="Check the latency", inline=False)
-    embed.add_field(name="!spam", value="Check the number of violations you have", inline=False)
+    embed.add_field(name="!help", value="Detail Bot Protector", inline=False)
+    embed.add_field(name="!ping", value="Cek Koneksi Bot", inline=False)
+    embed.add_field(name="!spam", value="Cek Pelanggaran ", inline=False)
     #threshold hidden command
 
     await ctx.send(embed=embed)
